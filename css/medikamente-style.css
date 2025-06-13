@@ -1,0 +1,146 @@
+/* css/medikamente-style.css */
+
+/* 0. Reset & Full-bleed Hintergrundbild */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+html, body {
+  height: 100%;
+  font-family: 'Segoe UI', sans-serif;
+  background: url('../assets/bg-mountains.png') no-repeat center center/cover;
+  background-size: cover;
+}
+
+/* 1. Hero + Overlay */
+.hero {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.overlay {
+  background: rgba(0,0,0,0.4);
+  backdrop-filter: blur(4px);
+  padding: 2rem;
+  border-radius: 20px;
+  width: 90%;
+  max-width: 420px;
+  max-height: 90vh;
+  overflow-y: auto;
+  text-align: center;
+}
+
+/* 2. Überschriften */
+.overlay h1,
+.overlay h2,
+.overlay h3 {
+  color: white;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+/* 3. Formular */
+.med-form {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+.med-form label {
+  color: white;
+  font-size: 0.9rem;
+  margin-top: 1rem;
+}
+.med-form input {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  margin-top: 0.5rem;
+  border: none;
+  border-radius: 30px;
+  background: rgba(255,255,255,0.8);
+  font-size: 1rem;
+}
+
+/* 4. Select mit extra Padding */
+.med-form select {
+  width: 100%;
+  padding: 0.75rem 1.5rem 0.75rem 1rem;
+  margin-top: 0.5rem;
+  border: none;
+  border-radius: 30px;
+  background: rgba(255,255,255,0.8);
+  font-size: 1rem;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg fill='black' height='24' viewBox='0 0 24 24' width='24'%3E%3Cpath d='M7 10l5 5 5-5z'/%3E%3Cpath d='M0 0h24v24H0z' fill='none'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 1rem center;
+}
+
+/* 5. Primary-Button */
+.primary {
+  display: block;
+  width: 100%;
+  padding: 0.8rem;
+  margin-top: 1.5rem;
+  border: 2px solid white;
+  border-radius: 30px;
+  background: #2e318d;
+  color: white;
+  font-weight: bold;
+  text-align: center;
+  transition: 0.3s ease;
+  text-decoration: none;
+  cursor: pointer;
+}
+.primary:hover {
+  background: #1c2073;
+}
+
+/* 6. Medikamenten-Liste */
+.med-list {
+  margin-top: 2rem;
+}
+.med-list-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(238,234,252,0.8);
+  padding: 0.75rem 1rem;
+  border-radius: 15px;
+  margin-bottom: 0.75rem;
+}
+
+/* 7. Delete-Button */
+.secondary {
+  background: transparent;
+  border: none;
+  color: #d63636;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+.secondary:hover {
+  color: #ff4d4d;
+}
+
+/* 8. Back-Button */
+.back-button {
+  display: block;
+  width: 100%;
+  padding: 0.8rem;
+  margin-top: 1.5rem;
+  border: 2px solid white;
+  border-radius: 30px;
+  background: white;
+  color: #2e318d;
+  font-weight: bold;
+  text-align: center;
+  text-decoration: none;
+  transition: 0.3s ease;
+  cursor: pointer;
+}
+.back-button:hover {
+  background: #2e318d;
+  color: white;
+}

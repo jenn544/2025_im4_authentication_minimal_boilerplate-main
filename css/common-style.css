@@ -1,0 +1,41 @@
+/* css/common-style.css */
+
+/* Primary-Button (weißer Hintergrund, lilafarbener Text) */
+.primary {
+  display: inline-block;
+  font-weight: bold;
+  padding: 0.8rem 1.5rem;
+  border-radius: 30px;
+  border: 2px solid white;
+  background-color: white;
+  color: #2e318d;
+  text-decoration: none;
+  text-align: center;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.primary:hover {
+  background-color: #2e318d;
+  color: white;
+}
+
+/* Secondary-Button (transparenter Hintergrund, weißer Text) */
+.secondary {
+  display: inline-block;
+  font-weight: bold;
+  padding: 0.8rem 1.5rem;
+  border-radius: 30px;
+  border: 2px solid white;
+  background: transparent;
+  color: white;
+  text-decoration: none;
+  text-align: center;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.secondary:hover {
+  background-color: white;
+  color: #2e318d;
+}

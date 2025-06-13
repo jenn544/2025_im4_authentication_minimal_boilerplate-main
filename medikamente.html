@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Medikamente</title>
+  <link rel="stylesheet" href="css/index-style.css" />
+  <link rel="stylesheet" href="css/medikamente-style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+</head>
+<body>
+  <div class="hero">
+    <div class="overlay">
+      <h1>Medikamente</h1>
+      <form id="medForm" class="med-form">
+        <label for="name">Medikamentenname:</label>
+        <input type="text" id="name" placeholder="z. B. Ibuprofen" required>
+
+        <label for="dosage">Dosierung:</label>
+        <input type="text" id="dosage" placeholder="z. B. 400 mg" required>
+
+        <label for="frequency">Wie oft:</label>
+        <select id="frequency">
+          <option value="täglich">täglich</option>
+          <option value="wöchentlich">wöchentlich</option>
+          <option value="monatlich">monatlich</option>
+        </select>
+
+        <!-- zunächst ausgeblendet -->
+        <label id="weekdayLabel" for="weekday" style="display:none;">Wochentag:</label>
+        <select id="weekday" style="display:none;">
+          <option value="0">Sonntag</option>
+          <option value="1">Montag</option>
+          <option value="2">Dienstag</option>
+          <option value="3">Mittwoch</option>
+          <option value="4">Donnerstag</option>
+          <option value="5">Freitag</option>
+          <option value="6">Samstag</option>
+        </select>
+
+        <label for="time">Uhrzeit:</label>
+        <input type="time" id="time" required>
+
+        <button type="submit" class="primary">+ Hinzufügen</button>
+      </form>
+
+      <h2>Alle Medikamente</h2>
+      <div id="medList" class="med-list"></div>
+
+      <a href="dashboard.html" class="back-button">Zurück zum Dashboard</a>
+    </div>
+  </div>
+
+  <!-- Inline-Skript, damit wir sicher sind, dass es wirklich ausgeführt wird -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const freq    = document.getElementById('frequency');
+      const wLabel  = document.getElementById('weekdayLabel');
+      const wSelect = document.getElementById('weekday');
+
+      function toggleWeekday() {
+        const show = freq.value === 'wöchentlich';
+        wLabel.style.display  = show ? 'block' : 'none';
+        wSelect.style.display = show ? 'block' : 'none';
+      }
+
+      freq.addEventListener('change', toggleWeekday);
+      toggleWeekday();
+    });
+  </script>
+  <script src="js/medikamente.js" defer></script>
+</body>
+</html>

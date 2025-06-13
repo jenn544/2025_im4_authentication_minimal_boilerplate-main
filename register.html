@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Registrieren</title>
+  <link rel="stylesheet" href="css/register-style.css" />
+</head>
+<body>
+  <div class="hero">
+    <div class="overlay">
+      <h1>Registrieren</h1>
+      <form id="registerForm" class="register-form">
+        <label for="vorname">Dein Name:</label>
+        <input type="text" id="vorname" name="vorname" placeholder="Name Vorname" required />
+
+        <label for="email">E-Mail:</label>
+        <input type="email" id="email" name="email" placeholder="login@email.com" required />
+
+        <label for="password">Passwort:</label>
+        <input type="password" id="password" name="password" placeholder="********" required />
+
+        <!-- Verstecktes Feld für Nachname, wird in PHP benötigt -->
+        <input type="hidden" id="nachname" name="nachname" value="-" />
+
+        <!-- Primary-Button -->
+        <button type="submit" class="primary">Registrieren</button>
+      </form>
+
+      <p class="login-hint">
+        Schon ein Account?
+        <a href="login.html" class="secondary">Anmelden</a>
+      </p>
+    </div>
+  </div>
+
+  <script src="js/register.js" defer></script>
+</body>
+</html>

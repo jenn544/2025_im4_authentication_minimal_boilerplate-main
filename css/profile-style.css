@@ -1,0 +1,112 @@
+/* css/profile-style.css */
+
+/* 0. Reset & Full-bleed Hintergrundbild */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+html, body {
+  height: 100%;
+  font-family: 'Segoe UI', sans-serif;
+  background: url('../assets/bg-mountains.png') no-repeat center center/cover;
+  background-size: cover;
+}
+
+/* 1. Hero + Overlay */
+.hero {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.overlay {
+  background: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(4px);
+  padding: 2rem;
+  border-radius: 20px;
+  width: 90%;
+  max-width: 360px;
+  max-height: 90vh;
+  overflow-y: auto;
+  text-align: center;
+}
+
+/* 2. Überschrift */
+.overlay h2 {
+  color: white;
+  font-size: 2rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+}
+
+/* 3. Formular */
+.profile-form {
+  text-align: left;
+}
+.profile-form label {
+  display: block;
+  color: white;
+  font-size: 0.9rem;
+  margin-top: 1rem;
+}
+.profile-form input {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  margin-top: 0.5rem;
+  border: none;
+  border-radius: 30px;
+  background: rgba(255,255,255,0.8);
+  font-size: 1rem;
+}
+
+/* 4. Primary-Button */
+.primary {
+  display: block;
+  width: 100%;
+  padding: 0.8rem;
+  margin-top: 1.5rem;
+  border: 2px solid white;
+  border-radius: 30px;
+  background: white;
+  color: #2e318d;
+  font-weight: bold;
+  text-align: center;
+  cursor: pointer;
+  transition: 0.3s;
+  text-decoration: none;
+}
+.primary:hover {
+  background: #2e318d;
+  color: white;
+}
+
+/* 5. Secondary-Button */
+.secondary {
+  display: inline-block;
+  padding: 0.8rem;
+  margin-top: 1rem;
+  border: 2px solid white;
+  border-radius: 30px;
+  background: transparent;
+  color: white;
+  text-decoration: none;
+  text-align: center;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.secondary:hover {
+  background: white;
+  color: #2e318d;
+}
+
+/* 6. Footer-Buttons nebeneinander */
+.buttons {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+.buttons a,
+.buttons button {
+  flex: 1;
+}

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Anmelden</title>
+  <!-- 1. Index-Styles: Hero-Hintergrund & Overlay -->
+  <link rel="stylesheet" href="css/common-style.css" />
+  <!-- 2. Login-Styles: nur Form-Feinanpassung -->
+  <link rel="stylesheet" href="css/login-style.css" />
+</head>
+<body>
+  <div class="hero">
+    <div class="overlay">
+      <h1>Anmelden</h1>
+      <form id="loginForm" class="login-form">
+        <label for="email">📧 E-Mail:</label>
+        <input type="email" id="email" placeholder="login@email.com" required>
+
+        <label for="password">🔑 Passwort:</label>
+        <input type="password" id="password" placeholder="********" required>
+
+        <button type="submit" class="primary">Anmelden</button>
+      </form>
+      <p class="login-hint">
+        Noch kein Account? <a href="register.html" class="secondary">Registrieren</a>
+      </p>
+    </div>
+  </div>
+  <script src="js/login.js" defer></script>
+</body>
+</html>
