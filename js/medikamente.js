@@ -1,4 +1,14 @@
 // js/medikamente.js
+(async () => {
+  try {
+    const res = await fetch('api/profile.php', { credentials: 'include' });
+    if (res.status === 401) {
+      window.location.href = 'login.html';
+    }
+  } catch (err) {
+    window.location.href = 'login.html';
+  }
+})();
 document.addEventListener('DOMContentLoaded', () => {
   const freq    = document.getElementById('frequency');
   const wLabel  = document.getElementById('weekdayLabel');

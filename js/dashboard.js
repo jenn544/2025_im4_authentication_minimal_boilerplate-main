@@ -1,5 +1,17 @@
 // js/dashboard.js
 
+// simple authentication check
+(async () => {
+  try {
+    const res = await fetch('api/profile.php', { credentials: 'include' });
+    if (res.status === 401) {
+      window.location.href = 'login.html';
+    }
+  } catch (err) {
+    window.location.href = 'login.html';
+  }
+})();
+
 // aktuelles, ausgewähltes Datum (YYYY-MM-DD)
 let selectedDate = new Date().toISOString().slice(0,10);
 

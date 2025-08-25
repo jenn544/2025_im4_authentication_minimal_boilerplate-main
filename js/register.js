@@ -16,8 +16,8 @@ document.getElementById("registerForm").addEventListener("submit", async functio
     const result = await response.json();
 
     if (result.status === "success") {
-      // Nach erfolgreicher Registrierung zur Login-Seite
-      window.location.href = "dashboard.html";
+      // Nach erfolgreicher Registrierung zum geschützten Dashboard
+      window.location.href = "api/dashboard.php";
     } else {
       alert("Registrierung fehlgeschlagen: " + result.message);
     }

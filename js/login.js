@@ -17,8 +17,8 @@ document.getElementById("loginForm").addEventListener("submit", async (e) => {
     const result = await response.json();
 
     if (result.status === "success") {
-      // Weiterleitung nach Dashboard.html
-      window.location.href = "dashboard.html";
+      // Weiterleitung über geschützte PHP-Seite
+      window.location.href = "api/dashboard.php";
     } else {
       alert(result.message || "Login fehlgeschlagen.");
     }

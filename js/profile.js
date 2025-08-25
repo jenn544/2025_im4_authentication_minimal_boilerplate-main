@@ -1,5 +1,16 @@
 // js/profile.js
 
+(async () => {
+  try {
+    const res = await fetch('api/profile.php', { credentials: 'include' });
+    if (res.status === 401) {
+      window.location.href = 'login.html';
+    }
+  } catch (err) {
+    window.location.href = 'login.html';
+  }
+})();
+
 async function loadProfile() {
   try {
     const res  = await fetch('api/profile.php', {
