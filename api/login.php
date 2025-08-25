@@ -4,8 +4,6 @@ ini_set('session.cookie_httponly', 1);
 // ini_set('session.cookie_secure', 1); // if using HTTPS
 session_start();
 header('Content-Type: application/json');
-header('X-Content-Type-Options: nosniff');
-header('Cache-Control: max-age=31536000, immutable');
 
 require_once '../system/config.php';
 

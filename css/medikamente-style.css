@@ -1,5 +1,18 @@
 /* css/medikamente-style.css */
 
+/* 0. Reset & Full-bleed Hintergrundbild */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+html, body {
+  height: 100%;
+  font-family: 'Segoe UI', sans-serif;
+  background: url('../assets/bg-mountains.png') no-repeat center center/cover;
+  background-size: cover;
+}
+
 /* 1. Hero + Overlay */
 .hero {
   height: 100vh;
@@ -9,28 +22,14 @@
 }
 .overlay {
   background: rgba(0,0,0,0.4);
-  -webkit-backdrop-filter: blur(4px);
   backdrop-filter: blur(4px);
   padding: 2rem;
   border-radius: 20px;
   width: 90%;
   max-width: 420px;
-  max-height: 90%;
+  max-height: 90vh;
   overflow-y: auto;
   text-align: center;
-}
-
-@media (max-width: 768px) {
-  .overlay {
-    max-height: 80%;
-    padding: 1rem;
-  }
-}
-
-@media (max-width: 480px) {
-  .overlay {
-    padding: 1rem;
-  }
 }
 
 /* 2. Überschriften */
@@ -143,14 +142,5 @@
 }
 .back-button:hover {
   background: #2e318d;
-  color: white;
-}
-
-/* 9. Utility classes */
-.is-hidden {
-  display: none;
-}
-
-.error-message {
   color: white;
 }

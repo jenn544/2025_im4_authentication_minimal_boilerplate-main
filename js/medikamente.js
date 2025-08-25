@@ -1,7 +1,5 @@
 // js/medikamente.js
-document.addEventListener('DOMContentLoaded', async () => {
-  if (!(await ensureAuth())) return;
-
+document.addEventListener('DOMContentLoaded', () => {
   const freq    = document.getElementById('frequency');
   const wLabel  = document.getElementById('weekdayLabel');
   const wSelect = document.getElementById('weekday');
@@ -20,14 +18,13 @@ document.addEventListener('DOMContentLoaded', async () => {
   // 2) Laden der Medikamente
   async function loadMeds() {
     try {
-      const res  = await fetch('api/medikamente.php', {
+      const res  = await fetch('api/medikamentenprofil.php', {
         credentials: 'include'
       });
       const json = await res.json();
       if (json.status !== 'success') throw new Error(json.message || 'Lade fehlgeschlagen');
 
-      list.replaceChildren();
-      const frag = document.createDocumentFragment();
+      list.innerHTML = '';
       json.data.forEach(med => {
         const div = document.createElement('div');
         div.className = 'med-list-item';
@@ -41,20 +38,19 @@ document.addEventListener('DOMContentLoaded', async () => {
             <i class="fa-solid fa-trash"></i>
           </button>
         `;
-        frag.appendChild(div);
+        list.appendChild(div);
 
         div.querySelector('.secondary').addEventListener('click', async () => {
-          await fetch(`api/medikamente.php?id=${med.id}`, {
+          await fetch(`api/medikamentenprofil.php?id=${med.id}`, {
             method: 'DELETE',
             credentials: 'include'
           });
           loadMeds();
         });
       });
-      list.appendChild(frag);
     } catch (err) {
       console.error(err);
-      list.innerHTML = `<p class="error-message">${err.message}</p>`;
+      list.innerHTML = `<p style="color:white;">${err.message}</p>`;
     }
   }
 
@@ -70,7 +66,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     };
 
     try {
-      const res  = await fetch('api/medikamente.php', {
+      const res  = await fetch('api/medikamentenprofil.php', {
         method: 'POST',
         headers: {'Content-Type':'application/json'},
         credentials: 'include',

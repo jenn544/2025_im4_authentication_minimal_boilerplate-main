@@ -3,9 +3,7 @@
 // aktuelles, ausgewähltes Datum (YYYY-MM-DD)
 let selectedDate = new Date().toISOString().slice(0,10);
 
-document.addEventListener('DOMContentLoaded', async () => {
-  if (!(await ensureAuth())) return;
-
+document.addEventListener('DOMContentLoaded', () => {
   initCalendar();
   loadUsername();
   loadCards();

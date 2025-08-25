@@ -1,5 +1,19 @@
 /* css/dashboard-style.css */
 
+/* Reset & Hintergrund */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+html, body {
+  height: 100%;
+  font-family: 'Segoe UI', sans-serif;
+  background: url('../assets/bg-mountains.png') no-repeat center center/cover;
+  background-size: cover;
+  overflow: hidden;
+}
+
 /* Hero + Overlay */
 .hero {
   height: 100vh;
@@ -7,29 +21,14 @@
   justify-content: center;
   align-items: center;
 }
-
-html, body {
-  overflow: hidden;
-}
 .overlay {
   background: rgba(255, 255, 255, 0.6);
-  -webkit-backdrop-filter: blur(4px);
   backdrop-filter: blur(4px);
   padding: 2rem;
   border-radius: 25px;
-  width: 90%;
-  max-width: 1200px;
-  height: auto;
-  max-height: 90%;
+  width: 70vw;
+  height: 90vh;
   overflow-y: auto;
-}
-
-@media (max-width: 768px) {
-  .overlay {
-    width: 100%;
-    max-height: 80%;
-    padding: 1rem;
-  }
 }
 
 /* Header */

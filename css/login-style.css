@@ -1,3 +1,16 @@
+/* Reset & Hintergrund */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+html, body {
+  height: 100%;
+  font-family: 'Segoe UI', sans-serif;
+  background: url('../assets/bg-mountains.png') no-repeat center center/cover;
+  background-size: cover;
+}
+
 /* Hero + Overlay */
 .hero {
   height: 100vh;
@@ -7,19 +20,12 @@
 }
 .overlay {
   background: rgba(0, 0, 0, 0.4);
-  -webkit-backdrop-filter: blur(4px);
   backdrop-filter: blur(4px);
   padding: 2rem;
   border-radius: 20px;
   width: 90%;
   max-width: 320px;
   text-align: center;
-}
-
-@media (max-width: 480px) {
-  .overlay {
-    padding: 1rem;
-  }
 }
 
 /* Überschrift */
@@ -94,17 +100,4 @@
   color: white;
   margin-top: 1rem;
   font-size: 0.9rem;
-}
-
-/* Feedback messages */
-.feedback {
-  margin-top: 0.5rem;
-  font-size: 0.9rem;
-  display: none;
-}
-.feedback.error {
-  color: #ff4d4d;
-}
-.feedback.success {
-  color: #4caf50;
 }
