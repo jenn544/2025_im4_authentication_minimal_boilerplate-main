@@ -18,7 +18,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // 2) Laden der Medikamente
   async function loadMeds() {
     try {
-      const res  = await fetch('api/medikamentenprofil.php', {
+      const res  = await fetch('api/medikamente.php', {
         credentials: 'include'
       });
       const json = await res.json();
@@ -41,7 +41,7 @@ document.addEventListener('DOMContentLoaded', () => {
         list.appendChild(div);
 
         div.querySelector('.secondary').addEventListener('click', async () => {
-          await fetch(`api/medikamentenprofil.php?id=${med.id}`, {
+          await fetch(`api/medikamente.php?id=${med.id}`, {
             method: 'DELETE',
             credentials: 'include'
           });
@@ -66,7 +66,7 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     try {
-      const res  = await fetch('api/medikamentenprofil.php', {
+      const res  = await fetch('api/medikamente.php', {
         method: 'POST',
         headers: {'Content-Type':'application/json'},
         credentials: 'include',
