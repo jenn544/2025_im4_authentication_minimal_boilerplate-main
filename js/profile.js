@@ -1,5 +1,8 @@
 // js/profile.js
 
+const authData = await window.ensureAuth();
+if (!authData) return;
+
 const profileForm = document.getElementById('profileForm');
 const saveBtn     = document.getElementById('saveBtn');
 const feedbackEl  = document.createElement('p');

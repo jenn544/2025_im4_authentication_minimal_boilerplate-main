@@ -1,25 +1,15 @@
 /* css/dashboard-style.css */
 
-/* Reset & Hintergrund */
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-html, body {
-  height: 100%;
-  font-family: 'Segoe UI', sans-serif;
-  background: url('../assets/bg-mountains.png') no-repeat center center/cover;
-  background-size: cover;
-  overflow: hidden;
-}
-
 /* Hero + Overlay */
 .hero {
   height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+html, body {
+  overflow: hidden;
 }
 .overlay {
   background: rgba(255, 255, 255, 0.6);
