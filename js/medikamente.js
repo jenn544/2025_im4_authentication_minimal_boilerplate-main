@@ -1,5 +1,7 @@
 // js/medikamente.js
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', async () => {
+  if (!(await ensureAuth())) return;
+
   const freq    = document.getElementById('frequency');
   const wLabel  = document.getElementById('weekdayLabel');
   const wSelect = document.getElementById('weekday');
@@ -24,7 +26,8 @@ document.addEventListener('DOMContentLoaded', () => {
       const json = await res.json();
       if (json.status !== 'success') throw new Error(json.message || 'Lade fehlgeschlagen');
 
-      list.innerHTML = '';
+      list.replaceChildren();
+      const frag = document.createDocumentFragment();
       json.data.forEach(med => {
         const div = document.createElement('div');
         div.className = 'med-list-item';
@@ -38,7 +41,7 @@ document.addEventListener('DOMContentLoaded', () => {
             <i class="fa-solid fa-trash"></i>
           </button>
         `;
-        list.appendChild(div);
+        frag.appendChild(div);
 
         div.querySelector('.secondary').addEventListener('click', async () => {
           await fetch(`api/medikamente.php?id=${med.id}`, {
@@ -48,6 +51,7 @@ document.addEventListener('DOMContentLoaded', () => {
           loadMeds();
         });
       });
+      list.appendChild(frag);
     } catch (err) {
       console.error(err);
       list.innerHTML = `<p class="error-message">${err.message}</p>`;
