@@ -1,5 +1,17 @@
 // js/profile.js
 
+const profileForm = document.getElementById('profileForm');
+const saveBtn     = document.getElementById('saveBtn');
+const feedbackEl  = document.createElement('p');
+feedbackEl.className = 'feedback';
+profileForm.appendChild(feedbackEl);
+
+function showFeedback(message, type) {
+  feedbackEl.textContent = message;
+  feedbackEl.className   = `feedback ${type}`;
+  feedbackEl.style.display = message ? 'block' : 'none';
+}
+
 async function loadProfile() {
   try {
     const res  = await fetch('api/profile.php', {
@@ -14,12 +26,13 @@ async function loadProfile() {
       document.getElementById('birthdate').value = d.birthdate || '';
       // Passwort-Feld leer lassen
       document.getElementById('password').value = '';
+      showFeedback('', '');
     } else {
-      alert('Fehler beim Laden der Profildaten');
+      showFeedback('Fehler beim Laden der Profildaten', 'error');
     }
   } catch (err) {
     console.error(err);
-    alert('Fehler beim Laden der Profildaten');
+    showFeedback('Fehler beim Laden der Profildaten', 'error');
   }
 }
 
@@ -30,11 +43,14 @@ async function saveProfile() {
   const birthdate = document.getElementById('birthdate').value;
 
   if (!name || !email) {
-    alert('Name und E-Mail dürfen nicht leer sein.');
+    showFeedback('Name und E-Mail dürfen nicht leer sein.', 'error');
     return;
   }
 
   const payload = { name, email, password, birthdate };
+
+  showFeedback('', '');
+  saveBtn.disabled = true;
 
   try {
     const res    = await fetch('api/profile.php', {
@@ -46,17 +62,19 @@ async function saveProfile() {
     const result = await res.json();
 
     if (result.status === 'success') {
-      alert('Profil gespeichert!');
+      showFeedback('Profil gespeichert!', 'success');
       // Passwort-Feld löschen, damit nicht erneut gesendet
       document.getElementById('password').value = '';
     } else {
-      alert(result.message || 'Fehler beim Speichern');
+      showFeedback(result.message || 'Fehler beim Speichern', 'error');
     }
   } catch (err) {
     console.error(err);
-    alert('Fehler beim Speichern');
+    showFeedback('Fehler beim Speichern', 'error');
+  } finally {
+    saveBtn.disabled = false;
   }
 }
 
-document.getElementById('saveBtn').addEventListener('click', saveProfile);
+saveBtn.addEventListener('click', saveProfile);
 loadProfile();
