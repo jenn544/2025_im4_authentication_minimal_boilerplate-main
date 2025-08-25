@@ -1,9 +1,9 @@
 <?php
 session_start();
+header('Content-Type: application/json');
 
 if (!isset($_SESSION['user_id'])) {
     http_response_code(401);
-    header('Content-Type: application/json');
     echo json_encode(["error" => "Unauthorized"]);
     exit;
 }
@@ -14,9 +14,21 @@ require_once '../../system/config.php';
 // Logged-in user ID
 $loggedInUserId = $_SESSION['user_id'];
 
-// Beispiel-Daten, die eingefügt werden sollen
-$firstname = "Jenny;
-$lastname = "Wiesner";
+// Erwartete Nutzerdaten aus dem Request
+if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
+    http_response_code(405);
+    echo json_encode(["error" => "Invalid request method"]);
+    exit;
+}
+
+$firstname = trim($_POST['firstname'] ?? '');
+$lastname  = trim($_POST['lastname'] ?? '');
+
+if (!$firstname || !$lastname) {
+    http_response_code(400);
+    echo json_encode(["error" => "Firstname and lastname are required"]);
+    exit;
+}
 
 try {
     // Daten in die Tabelle einfügen
@@ -31,3 +43,4 @@ try {
     http_response_code(500);
     echo json_encode(["error" => "Database error: " . $e->getMessage()]);
 }
+
