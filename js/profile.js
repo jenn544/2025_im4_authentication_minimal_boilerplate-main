@@ -1,15 +1,20 @@
 // js/profile.js
 
-(async () => {
+document.addEventListener('DOMContentLoaded', async () => {
   try {
     const res = await fetch('api/profile.php', { credentials: 'include' });
     if (res.status === 401) {
       window.location.href = 'login.html';
+      return;
     }
   } catch (err) {
     window.location.href = 'login.html';
+    return;
   }
-})();
+
+  document.getElementById('saveBtn').addEventListener('click', saveProfile);
+  loadProfile();
+});
 
 async function loadProfile() {
   try {
@@ -68,6 +73,3 @@ async function saveProfile() {
     alert('Fehler beim Speichern');
   }
 }
-
-document.getElementById('saveBtn').addEventListener('click', saveProfile);
-loadProfile();

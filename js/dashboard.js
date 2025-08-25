@@ -1,21 +1,21 @@
 // js/dashboard.js
 
-// simple authentication check
-(async () => {
+// aktuelles, ausgewähltes Datum (YYYY-MM-DD)
+let selectedDate = new Date().toISOString().slice(0,10);
+
+document.addEventListener('DOMContentLoaded', async () => {
+  // simple authentication check
   try {
     const res = await fetch('api/profile.php', { credentials: 'include' });
     if (res.status === 401) {
       window.location.href = 'login.html';
+      return;
     }
   } catch (err) {
     window.location.href = 'login.html';
+    return;
   }
-})();
 
-// aktuelles, ausgewähltes Datum (YYYY-MM-DD)
-let selectedDate = new Date().toISOString().slice(0,10);
-
-document.addEventListener('DOMContentLoaded', () => {
   initCalendar();
   loadUsername();
   loadCards();
