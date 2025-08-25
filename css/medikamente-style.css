@@ -144,3 +144,12 @@ html, body {
   background: #2e318d;
   color: white;
 }
+
+/* 9. Utility classes */
+.is-hidden {
+  display: none;
+}
+
+.error-message {
+  color: white;
+}
