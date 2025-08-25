@@ -1,0 +1,30 @@
+/* css/base.css */
+
+/* Reset & Hintergrund */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+html, body {
+  height: 100%;
+  font-family: 'Segoe UI', sans-serif;
+  background: url('../assets/bg-mountains.png') no-repeat center center/cover;
+  background-size: cover;
+}
+
+/* Hero + Overlay */
+.hero {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.overlay {
+  background: rgba(0,0,0,0.4);
+  backdrop-filter: blur(4px);
+  padding: 2rem;
+  border-radius: 20px;
+  width: 90%;
+  text-align: center;
+}

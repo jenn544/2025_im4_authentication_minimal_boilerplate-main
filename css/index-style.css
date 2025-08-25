@@ -1,30 +1,10 @@
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
 body, html {
-  height: 100%;
-  font-family: 'Segoe UI', sans-serif;
   color: white;
 }
 
 .hero {
-  background: url('../assets/bg-mountains.png') no-repeat center center/cover;
-  height: 100vh;
   position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   text-align: center;
-}
-
-.overlay {
-  background: rgba(0, 0, 0, 0.4); /* optional for readability */
-  padding: 2rem;
-  border-radius: 20px;
-  backdrop-filter: blur(4px);
 }
 
 h1 {
@@ -44,33 +24,5 @@ p {
 }
 
 .buttons a {
-  display: inline-block;
-  text-decoration: none;
-  font-weight: bold;
-  padding: 0.8rem 1.5rem;
-  border-radius: 30px;
   margin: 0.5rem;
-  transition: 0.3s ease;
-}
-
-a.primary {
-  background-color: white;
-  color: #2e318d;
-  border: 2px solid white;
-}
-
-a.primary:hover {
-  background-color: #2e318d;
-  color: white;
-}
-
-a.secondary {
-  border: 2px solid white;
-  background: transparent;
-  color: white;
-}
-
-a.secondary:hover {
-  background-color: white;
-  color: #2e318d;
 }

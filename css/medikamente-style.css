@@ -1,35 +1,10 @@
 /* css/medikamente-style.css */
 
-/* 0. Reset & Full-bleed Hintergrundbild */
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-html, body {
-  height: 100%;
-  font-family: 'Segoe UI', sans-serif;
-  background: url('../assets/bg-mountains.png') no-repeat center center/cover;
-  background-size: cover;
-}
-
-/* 1. Hero + Overlay */
-.hero {
-  height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
+/* Overlay-Anpassung */
 .overlay {
-  background: rgba(0,0,0,0.4);
-  backdrop-filter: blur(4px);
-  padding: 2rem;
-  border-radius: 20px;
-  width: 90%;
   max-width: 420px;
   max-height: 90vh;
   overflow-y: auto;
-  text-align: center;
 }
 
 /* 2. Überschriften */
@@ -83,18 +58,12 @@ html, body {
   width: 100%;
   padding: 0.8rem;
   margin-top: 1.5rem;
-  border: 2px solid white;
-  border-radius: 30px;
   background: #2e318d;
   color: white;
-  font-weight: bold;
-  text-align: center;
-  transition: 0.3s ease;
-  text-decoration: none;
-  cursor: pointer;
 }
 .primary:hover {
   background: #1c2073;
+  color: white;
 }
 
 /* 6. Medikamenten-Liste */
@@ -128,19 +97,5 @@ html, body {
 .back-button {
   display: block;
   width: 100%;
-  padding: 0.8rem;
   margin-top: 1.5rem;
-  border: 2px solid white;
-  border-radius: 30px;
-  background: white;
-  color: #2e318d;
-  font-weight: bold;
-  text-align: center;
-  text-decoration: none;
-  transition: 0.3s ease;
-  cursor: pointer;
-}
-.back-button:hover {
-  background: #2e318d;
-  color: white;
 }
