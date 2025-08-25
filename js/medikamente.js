@@ -50,7 +50,7 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     } catch (err) {
       console.error(err);
-      list.innerHTML = `<p style="color:white;">${err.message}</p>`;
+      list.innerHTML = `<p class="error-message">${err.message}</p>`;
     }
   }
 
