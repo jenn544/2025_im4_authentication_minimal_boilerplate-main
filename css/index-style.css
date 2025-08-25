@@ -24,6 +24,7 @@ body, html {
   background: rgba(0, 0, 0, 0.4); /* optional for readability */
   padding: 2rem;
   border-radius: 20px;
+  -webkit-backdrop-filter: blur(4px);
   backdrop-filter: blur(4px);
 }
 
