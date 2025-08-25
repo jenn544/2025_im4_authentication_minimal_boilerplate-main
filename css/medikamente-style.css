@@ -28,9 +28,16 @@ html, body {
   border-radius: 20px;
   width: 90%;
   max-width: 420px;
-  max-height: 90vh;
+  max-height: 90%;
   overflow-y: auto;
   text-align: center;
+}
+
+@media (max-width: 768px) {
+  .overlay {
+    max-height: 80%;
+    padding: 1rem;
+  }
 }
 
 /* 2. Überschriften */
