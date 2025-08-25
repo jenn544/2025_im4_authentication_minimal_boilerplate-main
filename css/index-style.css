@@ -1,17 +1,4 @@
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
-body, html {
-  height: 100%;
-  font-family: 'Segoe UI', sans-serif;
-  color: white;
-}
-
 .hero {
-  background: url('../assets/bg-mountains.png') no-repeat center center/cover;
   height: 100vh;
   position: relative;
   display: flex;
@@ -24,7 +11,14 @@ body, html {
   background: rgba(0, 0, 0, 0.4); /* optional for readability */
   padding: 2rem;
   border-radius: 20px;
+  -webkit-backdrop-filter: blur(4px);
   backdrop-filter: blur(4px);
+}
+
+@media (max-width: 480px) {
+  .overlay {
+    padding: 1rem;
+  }
 }
 
 h1 {

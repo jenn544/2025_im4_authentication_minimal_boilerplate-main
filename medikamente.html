@@ -4,6 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Medikamente</title>
+  <link rel="stylesheet" href="css/common-style.css" />
   <link rel="stylesheet" href="css/index-style.css" />
   <link rel="stylesheet" href="css/medikamente-style.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
@@ -27,8 +28,8 @@
         </select>
 
         <!-- zunächst ausgeblendet -->
-        <label id="weekdayLabel" for="weekday" style="display:none;">Wochentag:</label>
-        <select id="weekday" style="display:none;">
+        <label id="weekdayLabel" for="weekday" class="is-hidden">Wochentag:</label>
+        <select id="weekday" class="is-hidden">
           <option value="0">Sonntag</option>
           <option value="1">Montag</option>
           <option value="2">Dienstag</option>
@@ -68,6 +69,7 @@
       toggleWeekday();
     });
   </script>
+  <script src="js/auth.js" defer></script>
   <script src="js/medikamente.js" defer></script>
 </body>
 </html>

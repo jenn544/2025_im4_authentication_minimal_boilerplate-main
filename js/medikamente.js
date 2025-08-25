@@ -1,5 +1,7 @@
 // js/medikamente.js
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', async () => {
+  if (!(await ensureAuth())) return;
+
   const freq    = document.getElementById('frequency');
   const wLabel  = document.getElementById('weekdayLabel');
   const wSelect = document.getElementById('weekday');
@@ -18,13 +20,14 @@ document.addEventListener('DOMContentLoaded', () => {
   // 2) Laden der Medikamente
   async function loadMeds() {
     try {
-      const res  = await fetch('api/medikamentenprofil.php', {
+      const res  = await fetch('api/medikamente.php', {
         credentials: 'include'
       });
       const json = await res.json();
       if (json.status !== 'success') throw new Error(json.message || 'Lade fehlgeschlagen');
 
-      list.innerHTML = '';
+      list.replaceChildren();
+      const frag = document.createDocumentFragment();
       json.data.forEach(med => {
         const div = document.createElement('div');
         div.className = 'med-list-item';
@@ -38,19 +41,20 @@ document.addEventListener('DOMContentLoaded', () => {
             <i class="fa-solid fa-trash"></i>
           </button>
         `;
-        list.appendChild(div);
+        frag.appendChild(div);
 
         div.querySelector('.secondary').addEventListener('click', async () => {
-          await fetch(`api/medikamentenprofil.php?id=${med.id}`, {
+          await fetch(`api/medikamente.php?id=${med.id}`, {
             method: 'DELETE',
             credentials: 'include'
           });
           loadMeds();
         });
       });
+      list.appendChild(frag);
     } catch (err) {
       console.error(err);
-      list.innerHTML = `<p style="color:white;">${err.message}</p>`;
+      list.innerHTML = `<p class="error-message">${err.message}</p>`;
     }
   }
 
@@ -66,7 +70,7 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     try {
-      const res  = await fetch('api/medikamentenprofil.php', {
+      const res  = await fetch('api/medikamente.php', {
         method: 'POST',
         headers: {'Content-Type':'application/json'},
         credentials: 'include',

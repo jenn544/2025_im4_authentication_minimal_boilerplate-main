@@ -1,9 +1,11 @@
 <?php
 session_start();
+header('Content-Type: application/json');
+header('X-Content-Type-Options: nosniff');
+header('Cache-Control: max-age=31536000, immutable');
 
 if (!isset($_SESSION['user_id'])) {
     http_response_code(401);
-    header('Content-Type: application/json');
     echo json_encode(["error" => "Unauthorized"]);
     exit;
 }
@@ -15,7 +17,7 @@ require_once '../../system/config.php';
 $loggedInUserId = $_SESSION['user_id'];
 
 // Beispiel-Daten, die eingefügt werden sollen
-$firstname = "Jenny;
+$firstname = "Jenny";
 $lastname = "Wiesner";
 
 try {

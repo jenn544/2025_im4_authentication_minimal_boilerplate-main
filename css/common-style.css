@@ -1,5 +1,19 @@
 /* css/common-style.css */
 
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  height: 100%;
+  font-family: 'Segoe UI', sans-serif;
+  background: linear-gradient(135deg, #2e318d, #4e54c8);
+  background-size: cover;
+  color: white;
+}
+
 /* Primary-Button (weißer Hintergrund, lilafarbener Text) */
 .primary {
   display: inline-block;
