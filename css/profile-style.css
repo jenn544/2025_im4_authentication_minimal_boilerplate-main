@@ -1,18 +1,5 @@
 /* css/profile-style.css */
 
-/* 0. Reset & Full-bleed Hintergrundbild */
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-html, body {
-  height: 100%;
-  font-family: 'Segoe UI', sans-serif;
-  background: url('../assets/bg-mountains.png') no-repeat center center/cover;
-  background-size: cover;
-}
-
 /* 1. Hero + Overlay */
 .hero {
   height: 100vh;

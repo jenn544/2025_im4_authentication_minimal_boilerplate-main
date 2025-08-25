@@ -1,18 +1,5 @@
 /* css/medikamente-style.css */
 
-/* 0. Reset & Full-bleed Hintergrundbild */
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-html, body {
-  height: 100%;
-  font-family: 'Segoe UI', sans-serif;
-  background: url('../assets/bg-mountains.png') no-repeat center center/cover;
-  background-size: cover;
-}
-
 /* 1. Hero + Overlay */
 .hero {
   height: 100vh;
@@ -36,6 +23,12 @@ html, body {
 @media (max-width: 768px) {
   .overlay {
     max-height: 80%;
+    padding: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .overlay {
     padding: 1rem;
   }
 }
